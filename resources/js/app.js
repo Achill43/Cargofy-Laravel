@@ -49,10 +49,18 @@ var app = new Vue({
     this.GetWays();
   },
   update(){
-    this.GetWays();
+    window.Echo.channel('test')
+    .listen('PusherWay', (e)=>{
+        console.log("Дані через pusher: "+e);
+        GetWays()
+    });
   },
   mounted () {
-    this.GetWays();
+    window.Echo.channel('test')
+    .listen('PusherWay', (e)=>{
+        console.log("Дані через pusher: "+e);
+        GetWays()
+    });
   },
   methods: {
     GetWays() {
@@ -66,7 +74,7 @@ var app = new Vue({
     },
     updateWays: function(newWay){
       //GetWays();
-      console.log(newWay)
+      //console.log(newWay)
       this.ways.unshift(newWay)
     }
   },

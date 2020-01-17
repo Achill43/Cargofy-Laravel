@@ -35,7 +35,11 @@ import axios from 'axios';
     //this.GetWays();
   },
   mounted () {
-    //this.startTimer()
+    window.Echo.channel('test')
+    .listen('PusherWay', (e)=>{
+        console.log("Дані через pusher: "+e);
+        //GetWays()
+    });
   },
   beforeDestroy () {
     //this.stopTimer()

@@ -41,7 +41,7 @@ export default{
         addNewWay(){
             //event.preventDefault();
             if(this.newWay.name!=null && this.newWay.product!=null && this.newWay.weight!=0){
-                console.log('Create new Way')
+                //console.log('Create new Way')
 
                 axios.post('/addWay',{
                     name: this.newWay.name,
@@ -62,8 +62,6 @@ export default{
                         weight: this.newWay.weight,
                         created_at: newDate
                     }
-                    //ways.unshift(createWay)
-                    console.log('Start Event')
                     this.$emit('newway', createWay)
                 })
                 .catch(error => {
